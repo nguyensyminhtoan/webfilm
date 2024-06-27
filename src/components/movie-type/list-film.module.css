@@ -1,0 +1,8 @@
+.movies{
+  
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap:2%;
+  margin:1rem 0 0 0;
+}

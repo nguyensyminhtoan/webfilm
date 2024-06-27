@@ -1,10 +1,39 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
-  background-color: red;
+  padding-top: 6rem;
+  margin: 0 15% 0 15%;
+   }
+.main  h2{
+  padding-top:20px ;
 }
-
+.new-movies{
+  display: flex;
+  flex-wrap:nowrap;
+  
+  margin-top: 1%;
+  gap:2%;
+  overflow-x: auto;
+  width: 100%; 
+ }
+.new-movies::-webkit-scrollbar {
+    width: 10px !important;
+  }
+  
+.new-movies::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+.new-movies::-webkit-scrollbar-thumb {
+    background-color: rgba(187, 233, 102, 0.3);
+    border-radius: 10px;
+  }
+  
+.new-movies::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(49, 209, 62, 0.5);
+  }
+ 
+@media(max-width:1199px){
+.main {
+padding-top: 6rem;
+margin: 0;
+}
+}     
