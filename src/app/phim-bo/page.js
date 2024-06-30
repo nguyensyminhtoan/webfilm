@@ -23,6 +23,11 @@ export default function PhimBo()
 
     }
     fetchMovies(currentPage)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
   }
     , [currentPage])
   const nextPage = () =>

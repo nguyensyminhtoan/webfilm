@@ -23,6 +23,10 @@ export default function PhimLe()
 
     }
     fetchMovies(currentPage)
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
     , [currentPage])
   const nextPage = () =>

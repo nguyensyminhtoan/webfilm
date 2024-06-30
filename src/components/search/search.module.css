@@ -30,16 +30,21 @@
   border-radius: 0 0 10px 10px;
   overflow-y: auto;
 }
-.search-box img{
+/* .search-box img{
   width: 35%;
   height: 3rem;
-}
+} */
 .search-box.visible {
   display: block; 
 }
 .list{
   display: flex;
   flex-direction: column;
+}
+.list img{
+  min-width: 35%;
+  max-width: 35%;
+  height: 3rem;
 }
 .list li:hover{
   cursor: pointer;
@@ -113,7 +118,8 @@
     background-color: none;
   }
   .search-box img{
-    width: 50%;
+    min-width: 40%;
+    max-width: 40%;
     height: 3rem;
   }
 }

@@ -18,6 +18,7 @@
   display: flex;
   position: relative;
   justify-content: center;
+  gap: 10px;
 }
 .banner-slide p{
   position: absolute;
@@ -27,7 +28,7 @@
   border-radius: 10px;
 }
 .banner-slide img {
-  width: 80%;
+  width: 100%;
   max-height: 400px;
   display: block;
 }
@@ -37,19 +38,34 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.349);
   color: white;
   border: none;
   padding: 10px;
   cursor: pointer;
   font-size: 18px;
-  border-radius: 50%;
+  
 }
 
 .prev-btn {
-  left: 10px;
+  left: 0;
+  border-bottom-right-radius: 9999px;
+  border-top-right-radius: 9999px;
+  display: flex;
+  align-items: center;
 }
-
+.prev-btn svg{
+  width: 30px;
+  fill: aliceblue;
+}
 .next-btn {
-  right: 10px;
+  right: 0;
+  border-bottom-left-radius: 9999px;
+  border-top-left-radius: 9999px;
+  display: flex;
+  align-items: center;
+}
+.next-btn svg{
+  width: 30px;
+  fill: aliceblue;
 }
