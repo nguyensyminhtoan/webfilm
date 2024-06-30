@@ -5,6 +5,12 @@
 .main  h2{
   padding-top:20px ;
 }
+.main section h2{
+  color:rgb(187, 52, 54);
+  display: inline-block;
+  margin-bottom: 0;
+}
+
 .new-movies{
   display: flex;
   flex-wrap:nowrap;

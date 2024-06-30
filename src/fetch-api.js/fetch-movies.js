@@ -4,7 +4,7 @@ async function fetchMovies(endpoint, page)
 {
   try
   {
-    const response = await fetch(`${api}/${endpoint}`)
+    const response = await fetch(`${api}/${endpoint}?${page}`)
     if (!response.ok)
     {
       throw new Error(`Fetch request failed with status ${response.status}`);
