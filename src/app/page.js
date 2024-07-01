@@ -9,11 +9,11 @@ async function fetchAllMovies()
   try
   {
     const [newMovies, featureMovies, moviesSeries, moviesAnimation, tvShows] = await Promise.all([
-      fetchMovies('danh-sach/phim-moi-cap-nhat', 1),
-      fetchMovies('v1/api/danh-sach/phim-le', 1),
-      fetchMovies('v1/api/danh-sach/phim-bo', 1),
-      fetchMovies('v1/api/danh-sach/hoat-hinh', 1),
-      fetchMovies('v1/api/danh-sach/tv-shows', 1),
+      fetchMovies('danh-sach/phim-moi-cap-nhat', 0),
+      fetchMovies('v1/api/danh-sach/phim-le', 0),
+      fetchMovies('v1/api/danh-sach/phim-bo', 0),
+      fetchMovies('v1/api/danh-sach/hoat-hinh', 0),
+      fetchMovies('v1/api/danh-sach/tv-shows', 0),
     ]);
 
     return { newMovies, featureMovies, moviesSeries, moviesAnimation, tvShows };

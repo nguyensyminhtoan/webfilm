@@ -5,8 +5,7 @@
   width: 300px;
   margin-left: 2rem;
   border: none;
- 
-}
+ }
 
 .search input{
   
@@ -29,6 +28,7 @@
   display: none;
   border-radius: 0 0 10px 10px;
   overflow-y: auto;
+  
 }
 /* .search-box img{
   width: 35%;

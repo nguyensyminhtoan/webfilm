@@ -2,7 +2,7 @@
 import styles from './search.module.css'
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation'
-export default function Search()
+export default function Search({ setMenu })
 {
   const [isSearchBoxVisible, setIsSearchBoxVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -81,7 +81,11 @@ export default function Search()
     >
       <ul className={styles.list} >
         {results.items && !isLoading ? results.items.map((movie, index) => (
-          < li key={index} style={{ display: 'flex', gap: "10px", padding: "5px", width: "100%" }} onClick={() => handleCardClick(movie.slug)}>
+          < li key={index} style={{ display: 'flex', gap: "10px", padding: "5px", width: "100%" }} onClick={() =>
+          {
+            handleCardClick(movie.slug)
+            setMenu(false)
+          }}>
             <img src={`https://img.phimapi.com/${movie.thumb_url}`} alt={movie.name} />
             <span>{movie.name}</span>
           </li>

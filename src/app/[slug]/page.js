@@ -178,7 +178,7 @@ export default function Movie({ params })
               onClick={() => handleEpisodeClick(index + 1)}
               className={index + 1 === currentEpisode ? styles.currentEpisode : ''}
             >
-              Tập {index + 1}
+              {episode.name}
             </span>
           ))}
         </div>
