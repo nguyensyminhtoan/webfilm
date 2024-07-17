@@ -1,95 +1,96 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 
-export default function Home() {
-  return (
+import ListFilm from '../components/movie-type/list-film';
+import styles from './page.module.css';
+import Banner from '@/components/banner/banner';
+import fetchMovies from '../fetch-api.js/fetch-movies';
+import NewMoviesCard from '../components/movie-card/new-movies-card';
+import Link from 'next/link';
+
+
+
+async function fetchAllMovies()
+{
+  try
+  {
+    const fetchOptions = {
+      headers: {
+        'Cache-Control': 'no-store',
+      },
+      next: { revalidate: 3600 }
+    };
+
+    const [newMovies, featureMovies, moviesSeries, moviesAnimation, tvShows] = await Promise.all([
+      fetch('https://phimapi.com/danh-sach/phim-moi-cap-nhat', fetchOptions).then(res => res.json()),
+      fetch('https://phimapi.com/v1/api/danh-sach/phim-le', fetchOptions).then(res => res.json()),
+      fetch('https://phimapi.com/v1/api/danh-sach/phim-bo', fetchOptions).then(res => res.json()),
+      fetch('https://phimapi.com/v1/api/danh-sach/hoat-hinh', fetchOptions).then(res => res.json()),
+      fetch('https://phimapi.com/v1/api/danh-sach/tv-shows', fetchOptions).then(res => res.json()),
+    ]);
+
+    return { newMovies, featureMovies, moviesSeries, moviesAnimation, tvShows };
+  } catch (error)
+  {
+    console.error('Fetch lỗi:', error.message);
+    return {
+      newMovies: [],
+      featureMovies: [],
+      moviesSeries: [],
+      moviesAnimation: [],
+      tvShows: [],
+    };
+  }
+}
+
+
+
+export default async function Home()
+{
+  const { newMovies, featureMovies, moviesSeries, moviesAnimation, tvShows } = await fetchAllMovies();
+
+  return (<>
+    <title>Phim247 | Phim247.vn | Xem phim mới | Phim hay | Phim chiếu rạp</title>
+    <meta name='description' content='Phim Mới chất lượng cao miễn phí. Xem phim hd VietSub. Phim thuyết minh chất lượng HD. Kho phim247.vn chuẩn nhanh online hay hấp dẫn.'></meta>
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <Banner movies={newMovies} />
+      <section>
+        <Link href="/phim-moi-cap-nhat">
+          <h2>Phim Mới Cập Nhật</h2>
+        </Link>
+        <div className={styles['new-movies']}>
+          {newMovies ? (
+            newMovies.items.map((movie) => <NewMoviesCard key={movie._id} movie={movie} />)
+          ) : (
+            <p>Đang update</p>
+          )}
         </div>
-      </div>
+      </section>
+      <section>
+        <Link href="/phim-le">
+          <h2>Phim Lẻ</h2>
+        </Link>
+        <ListFilm movies={featureMovies} />
+      </section>
+      <section>
+        <Link href="/phim-bo">
+          <h2>Phim Bộ</h2>
+        </Link>
+        <ListFilm movies={moviesSeries} />
+      </section>
+      <section>
+        <Link href="/phim-hoat-hinh">
+          <h2>Phim Hoạt Hình</h2>
+        </Link>
+        <ListFilm movies={moviesAnimation} />
+      </section>
+      <section>
+        <Link href="/tv-shows">
+          <h2>TV Shows</h2>
+        </Link>
+        <ListFilm movies={tvShows} />
+      </section>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
+
+  </>
   );
 }

@@ -1,0 +1,71 @@
+.banner-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.banner-slides {
+  display: flex;
+  transition: transform 0.5s ease;
+  padding: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.banner-slide {
+  flex: 0 0 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  gap: 10px;
+}
+.banner-slide p{
+  position: absolute;
+  bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.589);
+  padding: 10px;
+  border-radius: 10px;
+}
+.banner-slide img {
+  width: 100%;
+  max-height: 400px;
+  display: block;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.349);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  
+}
+
+.prev-btn {
+  left: 0;
+  border-bottom-right-radius: 9999px;
+  border-top-right-radius: 9999px;
+  display: flex;
+  align-items: center;
+}
+.prev-btn svg{
+  width: 30px;
+  fill: aliceblue;
+}
+.next-btn {
+  right: 0;
+  border-bottom-left-radius: 9999px;
+  border-top-left-radius: 9999px;
+  display: flex;
+  align-items: center;
+}
+.next-btn svg{
+  width: 30px;
+  fill: aliceblue;
+}

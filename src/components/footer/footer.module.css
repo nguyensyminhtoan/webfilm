@@ -1,0 +1,80 @@
+.container {
+  border: 1px solid rgba(152, 153, 152, 0.459);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-content: center;
+  
+  padding: 0 10%;
+  width: 100%;
+}
+.telegram{
+  font-size: 24px;
+  margin-top: 100px;
+  margin-left: 30%;
+}
+.telegram svg{
+ width: 20px;
+ text-align: center;
+ fill: aliceblue;
+}
+.container img{
+  width: 40%;
+}
+.telegram a{
+  margin-left: 10px;
+  color: rgb(0, 255, 255);
+}
+@media(max-width:1200px){
+  .container {
+    border: 1px solid rgba(152, 153, 152, 0.459);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    width: 100%;
+  }
+  .telegram{
+    font-size: 24px;
+    margin-top: 30px;
+  }
+  .telegram svg{
+   width: 20px;
+   text-align: center;
+   fill: aliceblue;
+  }
+  .container img{
+    width: 40%;
+  }
+  .telegram a{
+    margin-left: 10px;
+    color: rgb(0, 255, 255);
+  }
+}
+@media(max-width:768px){
+  .telegram{
+    font-size: 20px;
+    margin-top: 0px;
+  }
+}
+@media(max-width:430px){
+  .telegram{
+    font-size: 20px;
+    margin-top: -10px;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .telegram svg{
+    width: 15px;
+    text-align: center;
+    fill: aliceblue;
+   }
+  .container{
+    padding: 0;
+  }
+  .telegram{
+    margin-right: 10px;
+    margin-left: 20px;
+    
+  }
+}

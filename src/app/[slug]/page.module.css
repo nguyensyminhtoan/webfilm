@@ -1,0 +1,203 @@
+.main{
+   margin: 5rem 15% 0 15%;
+}
+
+.playerWrapper {
+   
+   width: 75%;
+   height: 100%;
+
+ }
+
+.container-player-episode{
+   display: flex;
+   gap:10px;
+   width: 100%;
+   max-height: 25vw;
+   margin-bottom: 5rem
+;}
+.episode-list{
+   
+   border: 1px solid rgba(73, 143, 223, 0.568);
+   width: 25%;
+   display: flex;
+   flex-direction: column;
+     
+}
+
+.episode-list h4{
+   border-bottom:1px solid rgba(73, 143, 223, 0.568) ;
+   padding: 0 12px 12px 12px;
+   font-weight: lighter;
+   margin: 10px 0 10px 0;
+}
+.episodes{
+   padding: 0 12px 12px 12px;
+   font-weight: lighter;
+   display: flex;
+   flex-direction: column;
+   overflow-y: auto;
+   gap:20px;
+   margin-top: 20px;
+   
+}
+.currentEpisode {
+   color: rgb(46, 216, 173) 
+ }
+ 
+.episodes span:hover{
+   cursor: pointer;
+   color: rgb(61, 235, 139);
+}
+.choose-episode{
+   font-weight: lighter;
+   font-size: 12px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   position: relative;
+   border-bottom: 1px solid rgba(73, 143, 223, 0.568);
+   padding-bottom: 5px;
+   padding-left: 12px;
+}
+.choose-episode input{
+padding:0 18px 0 12px;
+width: 80px;
+height: 25px;
+border: none;
+background-color: rgba(62, 83, 117, 0.788);
+border-radius: 5px;
+margin-right: 5px;
+}
+.choose-episode svg{
+   width: 20px;
+   height: 20px;
+   position: absolute;
+   right: 5px;
+   fill: rgb(57, 238, 199);
+}
+.info h2{
+font-weight: lighter;
+}
+
+.detail{
+   display: flex;
+   gap: 10px;
+   font-weight: lighter;
+   line-height: 24px;
+}
+.detail img{
+   width: 240px;
+}
+.content span{
+   margin-right: 10px;
+   
+}
+.content p{
+   margin-top: 36px;
+}
+.content span:not(:first-child){
+   background-color: rgb(0, 124, 93);
+   padding: 5px;
+   border-radius: 4px;
+}
+.new-movies h2{
+   font-weight: lighter;
+   
+}
+.new-movies{
+margin-top: 36px;
+display: flex;
+flex-wrap:nowrap;
+margin-top: 1%;
+gap:2%;
+overflow-x: auto;
+width: 100%; 
+}
+.today{
+   margin-top: 36px;
+   margin-bottom: 72px;
+}
+@keyframes spin {
+   0% {
+     transform: rotate(0);
+   }
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+ .spinner {
+   margin-top: 8rem;
+   width: 100% !important;
+   height: 100% !important;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+ }
+ .spinner div:first-child {
+   display: block;
+   position: relative;
+   left: 5%;
+   top: 50%;
+   width: 150px;
+   height: 150px;
+   margin: -75px 0 0 -75px;
+   border-radius: 50%;
+   box-shadow: 0 3px 3px 0 rgba(255, 56, 106, 1);
+   transform: translate3d(0, 0, 0);
+   animation: spin 2s linear infinite;
+ }
+ .spinner div:first-child:after,
+ .spinner div:first-child:before {
+   content: "";
+   position: absolute;
+   border-radius: 50%;
+ }
+ .spinner div:first-child:before {
+   top: 5px;
+   left: 5px;
+   right: 5px;
+   bottom: 5px;
+   box-shadow: 0 3px 3px 0 rgb(255, 228, 32);
+   -webkit-animation: spin 3s linear infinite;
+   animation: spin 3s linear infinite;
+ }
+ .spinner div:first-child:after {
+   top: 15px;
+   left: 15px;
+   right: 15px;
+   bottom: 15px;
+   box-shadow: 0 3px 3px 0 rgba(61, 175, 255, 1);
+   animation: spin 1.5s linear infinite;
+ }
+ @media(max-width:1200px){
+   .main{
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      
+   }
+   .container-player-episode{
+      margin-top: 5rem;
+      flex-direction: column;
+      max-height: none;
+   }
+   .playerWrapper{
+      width: 100%;
+   }
+   .episode-list{
+      width: 100%;
+      height: 300px;
+   }
+   
+ }
+ @media(max-width:768px){
+   .detail{
+      display: flex;
+      flex-direction: column;
+      width:100% ;
+   }
+   .detail img{
+      width: 100%;
+   }
+ }
